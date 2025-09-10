@@ -1,0 +1,13 @@
+﻿import { getJSON, postJSON, API_BASE } from '../lib/http';
+// bots/discord/commands/myStats.ts
+import type { Command } from './index';
+
+const myStats: Command = async ({ msg, helpers }) => {
+  try {
+    const data = await getJSON(`/api/users/${encodeURIComponent(msg.author.id)}`);
+    await msg.reply(`**${data.username}** | ELO ${data.elo} | W:${data.wins} L:${data.losses}`);
+  } catch (e: any) {
+    await msg.reply(`❌ ${e.message}`);
+  }
+};
+export default myStats;

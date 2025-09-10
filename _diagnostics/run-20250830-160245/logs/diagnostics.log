@@ -1,0 +1,8 @@
+﻿[2025-08-30 16:02:45Z] [INFO] === Stream Stack Diagnostics START ===
+[2025-08-30 16:02:45Z] [VERBOSE] Parameters: RootPath=C:\Dasco1n, OutputPath=, OnlineValidation=True, CheckDependencies=False, MaxFileKB=512
+[2025-08-30 16:02:45Z] [INFO] Fast scan: C:\Dasco1n
+[2025-08-30 16:02:45Z] [INFO] Fast scan complete. Files=335
+[2025-08-30 16:02:51Z] [INFO] Report written: C:\Dasco1n\_diagnostics\run-20250830-160245\reports\diagnostics.json
+[2025-08-30 16:02:51Z] [INFO] Report written: C:\Dasco1n\_diagnostics\run-20250830-160245\reports\diagnostics.md
+[2025-08-30 16:02:51Z] [INFO] Elapsed: 00:00:05.6381076
+[2025-08-30 16:02:51Z] [INFO] === Stream Stack Diagnostics END ===

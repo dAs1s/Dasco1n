@@ -1,0 +1,436 @@
+﻿dasco1n
+|-- .analysis
+|-- .next
+|-- _diagnostics
+|-- app
+|-- bots
+|-- flat
+|-- public
+|-- scripts
+|-- tools
+|-- .botpids.json
+|-- .env
+|-- .env.bak_20250830160148.ignored
+|-- .env.bak_20250830160245.ignored
+|-- _util.ts
+|-- api.ts
+|-- auth.ts
+|-- bet.ts
+|-- check-connections.ps1
+|-- collect-project-info.ps1
+|-- commands.ts
+|-- cron.ts
+|-- db.ts
+|-- decimal.ts
+|-- deleteMatch.ts
+|-- deleteUser.ts
+|-- dev.ps1
+|-- diagnose-stream-stack.clean.ps1
+|-- diagnose-stream-stack.clean.ps1.bak_20250830155407
+|-- diagnose-stream-stack.clean.ps1.bak_20250830155734
+|-- diagnose-stream-stack.clean.ps1.bak_20250830160746
+|-- diagnose-stream-stack.clean.ps1.bak_20250830162612
+|-- diagnose-stream-stack.ps1
+|-- diagnose-stream-stack.ps1.bak_20250830134703
+|-- diagnose-stream-stack.ps1.bak_20250830134920
+|-- diagnose-stream-stack.ps1.bak_20250830140723
+|-- diagnose-stream-stack.ps1.bak_20250830140924
+|-- diagnose-stream-stack.ps1.bak_20250830141321
+|-- diagnose-stream-stack.ps1.bak_20250830141446
+|-- diagnose-stream-stack.ps1.bak_20250830141955
+|-- diagnose-stream-stack.ps1.bak_20250830142033
+|-- diagnose-stream-stack.ps1.bak_20250830142331
+|-- diagnose-stream-stack.ps1.bak_20250830142506
+|-- diagnose-stream-stack.ps1.bak_20250830142730
+|-- diagnose-stream-stack.ps1.bak_20250830152323
+|-- diagnose-stream-stack.ps1.bak_20250830152757
+|-- diagnose-stream-stack.ps1.bak_20250830152949
+|-- diagnose-stream-stack.ps1.bak_20250830153508
+|-- diagnose-stream-stack.ps1.bak_20250830153624
+|-- diagnose-stream-stack.ps1.bak_20250830153755
+|-- diagnose-stream-stack.ps1.bak_20250830153913
+|-- diagnose-stream-stack.ps1.bak_20250830154224
+|-- diagnose-stream-stack.ps1.bak_20250830155407
+|-- diagnose-stream-stack.ps1.bak_20250830155734
+|-- diagnose-stream-stack.ps1.bak_20250830160746
+|-- diagnose-stream-stack.ps1.bak_20250830162612
+|-- discord-canary.ts
+|-- discord-token-smoke.ts
+|-- DROP_IN_README.md
+|-- economy.ts
+|-- elo.ts
+|-- ENV.md
+|-- env.ts
+|-- help.ts
+|-- index.ts
+|-- inputDiscordName.ts
+|-- inputPlayer.ts
+|-- inputTwitchName.ts
+|-- inputUser.ts
+|-- ladder.ts
+|-- layout.tsx
+|-- listall.ts
+|-- lockBet.ts
+|-- logger.ts
+|-- matchHistory.ts
+|-- migration.sql
+|-- migration_lock.toml
+|-- myMatchHistory.ts
+|-- myStats.ts
+|-- myWallet.ts
+|-- next.config.js
+|-- next.config.js.bak-20250830205730
+|-- next.config.js.bak-20250830210027
+|-- next.config.mjs
+|-- next-env.d.ts
+|-- open-match.ps1
+|-- package.json
+|-- package.json.bak-20250830205352
+|-- package.json.bak-20250830210027
+|-- package.json.bak-20250830212353
+|-- package-lock.json
+|-- page.tsx
+|-- parsing.ts
+|-- patch_twitchid.sql
+|-- payout.ts
+|-- permissions.ts
+|-- plus1.ts
+|-- plus2.ts
+|-- pnpm-lock.yaml
+|-- powershellCommand.txt
+|-- prisma.ts
+|-- project-scan.json
+|-- Project-Status.ps1
+|-- project-tree.txt
+|-- README.md
+|-- record.ts
+|-- recordResult.ts
+|-- refund.ts
+|-- remove.ts
+|-- repair-stream-stack.ps1
+|-- repair-stream-stack.ps1.bak_20250830144358
+|-- repair-stream-stack.ps1.bak_20250830144443
+|-- repair-stream-stack.ps1.bak_20250830144601
+|-- repair-stream-stack.ps1.bak_20250830144706
+|-- repair-stream-stack.ps1.bak_20250830144847
+|-- repair-stream-stack.ps1.bak_20250830152323
+|-- route.ts
+|-- schema.prisma
+|-- schema.prisma.bak
+|-- search.ts
+|-- seed.ts
+|-- server.ts
+|-- setScore.ts
+|-- SETUP.md
+|-- SmartImage.tsx
+|-- socket.ts
+|-- startBet.ts
+|-- start-stream.ps1
+|-- state.ts
+|-- stats.ts
+|-- streamelements.ts
+|-- studio.ps1
+|-- top10Dascoin.ts
+|-- top10Glorpcoin.ts
+|-- top10Ladder.ts
+|-- tsconfig.json
+|-- tsconfig.json.bak-20250830205359
+|-- tsconfig.json.bak-20250830205729
+|-- tsconfig.json.bak-20250830210027
+|-- tsconfig.tsbuildinfo
+|-- types.ts
+|-- utils.ts
++-- WORKFLOWS.md
+|   |-- run_2025-09-07_22-58-57
+|   |-- run_2025-09-07_23-17-56
+|   |-- run_2025-09-08_00-27-44
+|   |-- run_2025-09-08_00-32-18
+|   +-- run_2025-09-08_00-37-38
+|   |   |-- artifacts
+|   |   +-- reports
+|   |       |-- dependencies
+|   |       +-- docs
+|   |   |-- artifacts
+|   |   +-- reports
+|   |       |-- dependencies
+|   |       |-- docs
+|   |       |-- file_inventory.csv
+|   |       +-- file_inventory.json
+|   |   |-- artifacts
+|   |   +-- reports
+|   |       |-- dependencies
+|   |       |-- docs
+|   |       |-- file_inventory.csv
+|   |       +-- file_inventory.json
+|   |   |-- artifacts
+|   |   +-- reports
+|   |       |-- dependencies
+|   |       |-- docs
+|   |       |-- file_inventory.csv
+|   |       +-- file_inventory.json
+|       |-- artifacts
+|       +-- reports
+|           |-- dependencies
+|           |-- docs
+|           |-- file_inventory.csv
+|           +-- file_inventory.json
+|   |-- cache
+|   |-- server
+|   |-- static
+|   |-- types
+|   |-- _events.json
+|   |-- app-build-manifest.json
+|   |-- build-manifest.json
+|   |-- package.json
+|   |-- prerender-manifest.json
+|   |-- react-loadable-manifest.json
+|   |-- routes-manifest.json
+|   +-- trace
+|   |   |-- swc
+|   |   |-- webpack
+|   |   |-- .rscinfo
+|   |   +-- next-devtools-config.json
+|   |   |   +-- plugins
+|   |   |       +-- windows_x86_64_18.0.0
+|   |   |   |-- client-development
+|   |   |   |-- client-development-fallback
+|   |   |   +-- server-development
+|   |   |   |   +-- index.pack.gz.old
+|   |   |       +-- index.pack.gz.old
+|   |   |-- app-paths-manifest.json
+|   |   |-- interception-route-rewrite-manifest.js
+|   |   |-- middleware-build-manifest.js
+|   |   |-- middleware-manifest.json
+|   |   |-- middleware-react-loadable-manifest.js
+|   |   |-- next-font-manifest.js
+|   |   |-- next-font-manifest.json
+|   |   |-- pages-manifest.json
+|   |   |-- server-reference-manifest.js
+|   |   +-- server-reference-manifest.json
+|   |   |-- chunks
+|   |   +-- development
+|   |   |   +-- polyfills.js
+|   |       |-- _buildManifest.js
+|   |       +-- _ssgManifest.js
+|   |   |-- cache-life.d.ts
+|   |   |-- package.json
+|   |   |-- routes.d.ts
+|   |   +-- validator.ts
+|   |-- run-20250830-135422
+|   |-- run-20250830-140038
+|   |-- run-20250830-140724
+|   |-- run-20250830-140925
+|   |-- run-20250830-141321
+|   |-- run-20250830-141447
+|   |-- run-20250830-141956
+|   |-- run-20250830-142033
+|   |-- run-20250830-142331
+|   |-- run-20250830-142507
+|   |-- run-20250830-142730
+|   |-- run-20250830-145913
+|   |-- run-20250830-152324
+|   |-- run-20250830-152758
+|   |-- run-20250830-153625
+|   |-- run-20250830-153755
+|   |-- run-20250830-153913
+|   |-- run-20250830-154045
+|   |-- run-20250830-154225
+|   |-- run-20250830-154347
+|   |-- run-20250830-154648
+|   |-- run-20250830-154736
+|   |-- run-20250830-155505
+|   |-- run-20250830-155734
+|   |-- run-20250830-160245
+|   |-- run-20250830-160746
+|   |-- run-20250830-162007
+|   +-- run-20250830-162612
+|   |   +-- reports
+|   |   +-- reports
+|   |   +-- reports
+|   |   +-- reports
+|   |   +-- reports
+|   |   +-- reports
+|   |   +-- reports
+|   |   +-- reports
+|   |   +-- reports
+|   |   +-- reports
+|   |   +-- reports
+|   |       |-- diagnostics.json
+|   |       +-- diagnostics.md
+|   |   +-- reports
+|   |       |-- diagnostics.json
+|   |       +-- diagnostics.md
+|   |   +-- reports
+|   |   +-- reports
+|   |   +-- reports
+|   |   +-- reports
+|   |   +-- reports
+|   |   +-- reports
+|   |   +-- reports
+|   |   +-- reports
+|   |   +-- reports
+|   |   +-- reports
+|   |   +-- reports
+|   |   +-- reports
+|   |       |-- diagnostics.json
+|   |       +-- diagnostics.md
+|   |   +-- reports
+|   |       |-- diagnostics.json
+|   |       +-- diagnostics.md
+|   |   +-- reports
+|   |   +-- reports
+|       +-- reports
+|           |-- diagnostics.json
+|           +-- diagnostics.md
+|   +-- api
+|       |-- _utils
+|       |-- bets
+|       |-- healthz
+|       |-- leaderboards
+|       +-- matches
+|       |   |-- auth.ts
+|       |   |-- prisma.ts
+|       |   +-- users.ts
+|       |   +-- current
+|       |       |-- place
+|       |       +-- refund
+|       |       |   +-- route.ts
+|       |           +-- route.ts
+|       |   +-- route.ts
+|       |   |-- dsc
+|       |   |-- elo
+|       |   +-- gpc
+|       |   |   +-- route.ts
+|       |   |   +-- route.ts
+|       |       +-- route.ts
+|           |-- current
+|           |-- open
+|           +-- record
+|           |   |-- lock
+|           |   |-- record
+|           |   |-- score
+|           |   +-- route.ts
+|           |   |   +-- route.ts
+|           |   |   +-- route.ts
+|           |   |   +-- route.ts
+|           |   +-- route.ts
+|               |-- route.ts
+|               +-- route.ts.bak
+|   |-- _archive
+|   |-- discord
+|   +-- twitch
+|   |   +-- discord.SOS-20250829-005719
+|   |       |-- src
+|   |       |-- .env.bak.ignored
+|   |       |-- .env.example.ignored
+|   |       |-- package.json
+|   |       |-- pnpm-lock.yaml
+|   |       |-- README.md
+|   |       +-- tsconfig.json
+|   |       |   |-- commands
+|   |       |   |-- lib
+|   |       |   |-- _probe.ts
+|   |       |   |-- deploy-commands.ts
+|   |       |   |-- index.ts
+|   |       |   +-- index.ts.bak
+|   |       |   |   |-- bet.ts
+|   |       |   |   |-- lockBet.ts
+|   |       |   |   |-- plus1.ts
+|   |       |   |   |-- plus2.ts
+|   |       |   |   |-- recordResult.ts
+|   |       |   |   |-- refund.ts
+|   |       |   |   |-- setScore.ts
+|   |       |   |   |-- startBet.ts
+|   |       |   |   |-- top10Dascoin.ts
+|   |       |   |   |-- top10Glorpcoin.ts
+|   |       |   |   +-- top10Ladder.ts
+|   |       |   |   |-- api.ts
+|   |       |   |   |-- env.ts
+|   |       |   |   |-- env.ts.bak
+|   |       |   |   |-- logger.ts
+|   |       |   |   |-- permissions.ts
+|   |       |   |   +-- usernames.ts
+|   |   |-- data
+|   |   |-- src
+|   |   |-- package.json
+|   |   |-- pnpm-lock.yaml
+|   |   |-- project-scan.json
+|   |   +-- tsconfig.json
+|   |   |   +-- userlinks.json
+|   |   |   |-- commands
+|   |   |   |-- lib
+|   |   |   |-- util
+|   |   |   |-- env.ts
+|   |   |   |-- index.ts
+|   |   |   +-- index.ts.bak
+|   |   |   |   |-- _disabled
+|   |   |   |   |-- bet.ts
+|   |   |   |   |-- dascoin.ts
+|   |   |   |   |-- dascoin.ts.bak-20250830214133
+|   |   |   |   |-- dascoin.ts.bak-20250830224812
+|   |   |   |   |-- deleteUser.ts
+|   |   |   |   |-- help.ts
+|   |   |   |   |-- help.ts.bak-20250831004829
+|   |   |   |   |-- index.ts
+|   |   |   |   |-- index.ts.bak
+|   |   |   |   |-- inputDiscordName.ts
+|   |   |   |   |-- inputPlayer.ts
+|   |   |   |   |-- inputTwitchName.ts
+|   |   |   |   |-- inputUser.ts
+|   |   |   |   |-- inputUser.ts.bak-20250830232233
+|   |   |   |   |-- inputUser.ts.bak-20250830232235
+|   |   |   |   |-- ladder.ts
+|   |   |   |   |-- ladder.ts.bak-20250831003802
+|   |   |   |   |-- listall.ts
+|   |   |   |   |-- matchHistory.ts
+|   |   |   |   |-- myMatchHistory.ts
+|   |   |   |   |-- myStats.ts.bak-20250831001421
+|   |   |   |   |-- myStats.ts.disabled
+|   |   |   |   |-- myWallet.ts
+|   |   |   |   |-- record.ts
+|   |   |   |   |-- remove.ts
+|   |   |   |   |-- search.ts
+|   |   |   |   |-- stats.ts
+|   |   |   |   +-- stats.ts.bak-20250831001421
+|   |   |   |   |   +-- discord.ts.disabled
+|   |   |   |   |-- env.ts
+|   |   |   |   +-- http.ts
+|   |   |   |   |-- api.ts
+|   |   |   |   |-- parsing.ts
+|   |   |   |   +-- permissions.ts
+|       |-- src
+|       |-- package.json
+|       |-- pnpm-lock.yaml
+|       |-- README.md
+|       +-- tsconfig.json
+|       |   |-- lib
+|       |   +-- index.ts
+|       |   |   |-- api.ts
+|       |   |   |-- env.ts
+|       |   |   |-- logger.ts
+|       |   |   +-- se.ts
+|   +-- bots
+|       +-- discord
+|           +-- src
+|               +-- commands
+|                   |-- bet.ts
+|                   |-- lockBet.ts
+|                   |-- plus1.ts
+|                   |-- plus2.ts
+|                   |-- recordResult.ts
+|                   |-- refund.ts
+|                   |-- setScore.ts
+|                   |-- startBet.ts
+|                   |-- top10Dascoin.ts
+|                   |-- top10Glorpcoin.ts
+|                   +-- top10Ladder.ts
+|   +-- twitch-token.html
+|   |-- Analyze-Project.ps1
+|   +-- seed.ts
+|   |-- patch-find-configs.ps1
+|   |-- stream-ops.ps1
+|   |-- stream-ops.ps1.bak_20250830145630
+|   |-- stream-ops.ps1.bak_20250830145633
+|   |-- stream-ops.ps1.bak_20250830145720
+|   +-- stream-ops.ps1.bak_20250830145726
+

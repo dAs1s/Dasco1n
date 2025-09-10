@@ -1,0 +1,4 @@
+﻿[2025-08-30 15:43:47Z] [INFO] === Stream Stack Diagnostics START ===
+[2025-08-30 15:43:47Z] [VERBOSE] Parameters: RootPath=C:\Dasco1n, OutputPath=, OnlineValidation=True, CheckDependencies=True, MaxFileKB=512
+[2025-08-30 15:43:47Z] [INFO] Fast scan: C:\Dasco1n
+[2025-08-30 15:43:47Z] [INFO] Fast scan complete. Files=324

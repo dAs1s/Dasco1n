@@ -1,0 +1,81 @@
+﻿import "./lib/env.js";
+import "./lib/env.js";
+import { Client, GatewayIntentBits, Partials, type Message, Events } from "discord.js";
+import { registerSlashDefinitions } from "./deploy-commands.js";
+import { logger } from "./lib/logger.js";
+import * as startBet from "./commands/startBet.js";
+import * as bet from "./commands/bet.js";
+import * as refund from "./commands/refund.js";
+import * as lockBet from "./commands/lockBet.js";
+import * as recordResult from "./commands/recordResult.js";
+import * as plus1 from "./commands/plus1.js";
+import * as plus2 from "./commands/plus2.js";
+import * as setScore from "./commands/setScore.js";
+import * as top10Ladder from "./commands/top10Ladder.js";
+import * as top10Dascoin from "./commands/top10Dascoin.js";
+import * as top10Glorpcoin from "./commands/top10Glorpcoin.js";
+
+const PREFIX = "!";
+
+const client = new Client({
+  intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
+  partials: [Partials.Channel],
+});
+
+const commands = new Map<string, any>([
+  ["startbet", startBet],
+  ["bet", bet],
+  ["refund", refund],
+  ["lockbet", lockBet],
+  ["recordresult", recordResult],
+  ["1", plus1],
+  ["2", plus2],
+  ["setscore", setScore],
+  ["top10ladder", top10Ladder],
+  ["top10dascoin", top10Dascoin],
+  ["top10glorpcoin", top10Glorpcoin],
+]);
+
+client.once(Events.ClientReady, async () => {
+  logger.info(`[READY] Logged in as ${client.user?.tag}`);
+});
+
+client.on("interactionCreate", async (i) => {
+  if (!i.isChatInputCommand()) return;
+  const cmd = commands.get(i.commandName);
+  if (!cmd?.runSlash) return i.reply({ content: "Unknown command.", ephemeral: true });
+  try {
+    await cmd.runSlash(i);
+  } catch (err: any) {
+    const msg = err?.response?.data?.error ?? err?.message ?? "Unknown error";
+    if (i.deferred || i.replied) await i.followUp({ content: `Error: ${msg}`, ephemeral: true });
+    else await i.reply({ content: `Error: ${msg}`, ephemeral: true });
+  }
+});
+
+client.on("messageCreate", async (msg: Message) => {
+  if (msg.author.bot || !msg.content.startsWith(PREFIX)) return;
+  const [raw, ...args] = msg.content.slice(PREFIX.length).trim().split(/\s+/);
+  const name = raw.toLowerCase();
+  const cmd = commands.get(name);
+  if (!cmd?.runPrefix) return;
+  try {
+    await cmd.runPrefix(msg, args);
+  } catch (err: any) {
+    await msg.reply("Error: " + (err?.response?.data?.error ?? err?.message ?? "Unknown error"));
+  }
+});
+
+(async () => {
+  try {
+    await registerSlashDefinitions();
+  } catch (e) {
+    logger.warn(`[WARN] Slash reg failed: ${e}`);
+  }
+  await client.login(process.env.DISCORD_TOKEN);
+})();
+
+
+
+
+

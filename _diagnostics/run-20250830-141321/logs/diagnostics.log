@@ -1,0 +1,5 @@
+﻿[2025-08-30 14:13:21Z] [INFO] === Stream Stack Diagnostics START ===
+[2025-08-30 14:13:21Z] [VERBOSE] Parameters: RootPath=C:\Dasco1n, OutputPath=, OnlineValidation=False, CheckDependencies=False, MaxFileKB=512
+[2025-08-30 14:13:21Z] [INFO] Fast scan: Root=C:\Dasco1n, Excludes=node_modules,.git,.vscode,.vs,dist,build,out,coverage,__pycache__,venv,.venv,env,bin,obj,.idea, MaxItems=120000
+[2025-08-30 14:13:21Z] [INFO] Fast scan complete. Dirs=84, Files=284
+[2025-08-30 14:13:21Z] [WARN] JSON parse failed (C:\Dasco1n\package-lock.json): Cannot process argument because the value of argument "name" is not valid. Change the value of the "name" argument and run the operation again.

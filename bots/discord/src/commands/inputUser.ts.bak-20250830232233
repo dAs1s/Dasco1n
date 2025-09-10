@@ -1,0 +1,48 @@
+﻿import { getJSON, postJSON, API_BASE } from '../lib/http';
+import type { Command } from "./index";
+import * as fs from "node:fs";
+import * as path from "node:path";
+
+type Link = { discordId: string; twitchLogin: string; twitchId?: string };
+
+function ensure(file: string) {
+  const dir = path.dirname(file);
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+  if (!fs.existsSync(file)) fs.writeFileSync(file, "[]");
+}
+function parseMention(s: string): string | null {
+  const m = s?.trim().match(/^<@!?(\d+)>$/);
+  return m ? m[1] : null;
+}
+
+const inputuser: Command = async ({ msg, args }) => {
+  if (args.length < 3) {
+    await msg.reply("Usage: `!inputuser <twitchLogin> <twitchId|-> <@discord>`");
+    return;
+  }
+  const [loginRaw, idRaw, mention] = args;
+  const twitchLogin = loginRaw.trim().toLowerCase();
+  const twitchId = idRaw.trim() === "-" ? undefined : idRaw.trim();
+  const discordId = parseMention(mention) || ( /^\d+$/.test(mention) ? mention : null );
+
+  if (!discordId) {
+    await msg.reply("❌ Provide a valid @mention (or numeric Discord ID).");
+    return;
+  }
+  if (!/^[a-z0-9_]+$/.test(twitchLogin)) {
+    await msg.reply("❌ Twitch login should be lowercase letters/numbers/underscore.");
+    return;
+  }
+
+  const file = path.join(process.cwd(), "data", "userlinks.json");
+  ensure(file);
+  const links: Link[] = JSON.parse(fs.readFileSync(file, "utf8"));
+
+  const idx = links.findIndex(l => l.discordId === discordId);
+  const newLink: Link = { discordId, twitchLogin, twitchId };
+
+  if (idx >= 0) { links[idx] = newLink; } else { links.push(newLink); }
+  fs.writeFileSync(file, JSON.stringify(links, null, 2));
+  await msg.reply(`✅ Linked <@${discordId}> ⇒ twitch **${twitchLogin}**${twitchId ? ` (id ${twitchId})` : ""}.`);
+};
+export default inputuser;

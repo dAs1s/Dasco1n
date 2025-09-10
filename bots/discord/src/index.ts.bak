@@ -1,0 +1,34 @@
+﻿// src/index.ts
+import "dotenv/config";
+import { Client, GatewayIntentBits } from "discord.js";
+import { commands } from "./commands";
+
+const PREFIX = process.env.PREFIX ?? "!";
+const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
+
+client.once("ready", (u) => {
+  console.log("✅ Discord bot ready as %s", u?.tag ?? "(unknown)");
+  console.log("🔧 PREFIX=%s  API_BASE=%s", PREFIX, process.env.API_BASE ?? "");
+});
+
+client.on("messageCreate", async (msg) => {
+  // ignore bots and messages without prefix
+  if (msg.author.bot) return;
+  if (!msg.content.startsWith(PREFIX)) return;
+
+  const without = msg.content.slice(PREFIX.length).trim();
+  const [rawCmd, ...args] = without.split(/\s+/);
+  const cmd = rawCmd.toLowerCase();
+
+  const handler = commands.get(cmd);
+  if (!handler) return; // silently ignore unknown commands
+
+  try {
+    await handler({ msg, args, prefix: PREFIX });
+  } catch (e: any) {
+    console.error("Command %s failed:", cmd, e);
+    try { await msg.reply("❌ Command error."); } catch {}
+  }
+});
+
+client.login(process.env.DISCORD_TOKEN);

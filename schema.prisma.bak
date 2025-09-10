@@ -1,0 +1,161 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String   @id @default(cuid())
+  username       String   @unique
+  twitchId       String?  @unique
+  discordId      String?  @unique
+  pfpUrl         String?
+  elo            Int      @default(1200)
+  rank           Int      @default(0)
+  wins           Int      @default(0)
+  losses         Int      @default(0)
+  comboCount     Int      @default(0)
+  createdAt      DateTime @default(now())
+  bets           Bet[]
+  offersAsBuyer  Offer[]  @relation("buyerOffers")
+  offersAsSeller Offer[]  @relation("sellerOffers")
+  wallets        Wallet[]
+}
+
+model Coin {
+  id        String      @id @default(cuid())
+  symbol    String      @unique
+  name      String
+  tier      Int
+  logoUrl   String?
+  basePrice Decimal     @db.Decimal(18, 6)
+  decimals  Int         @default(0)
+  market    CoinMarket?
+  offers    Offer[]
+  wallets   Wallet[]
+}
+
+model CoinMarket {
+  id              String   @id @default(cuid())
+  coinId          String   @unique
+  hmEnabled       Boolean  @default(true)
+  hmValue         Decimal  @default(1.0) @db.Decimal(18, 6)
+  overrideEnabled Boolean  @default(false)
+  overridePrice   Decimal  @default(0) @db.Decimal(18, 6)
+  updatedAt       DateTime @updatedAt
+  coin            Coin     @relation(fields: [coinId], references: [id])
+}
+
+model Wallet {
+  id      String  @id @default(cuid())
+  userId  String
+  coinId  String
+  balance Decimal @default(0) @db.Decimal(38, 18)
+  coin    Coin    @relation(fields: [coinId], references: [id])
+  user    User    @relation(fields: [userId], references: [id])
+
+  @@unique([userId, coinId])
+}
+
+model Ledger {
+  id        String   @id @default(cuid())
+  userId    String
+  coinId    String
+  delta     Decimal  @db.Decimal(38, 18)
+  reason    String
+  refType   String
+  refId     String
+  createdAt DateTime @default(now())
+}
+
+model Match {
+  id           String     @id @default(cuid())
+  channelId    String
+  p1UserId     String
+  p2UserId     String
+  state        MatchState @default(OPEN)
+  loserScore   Int?
+  winnerUserId String?
+  openedBy     String     @default("system")
+  openedAt     DateTime   @default(now())
+  lockedAt     DateTime?
+  settledAt    DateTime?
+  bets         Bet[]
+}
+
+model Bet {
+  id                  String    @id @default(cuid())
+  matchId             String
+  userId              String
+  predictedWinner     String
+  predictedLoserScore Int
+  amountDSC           Int
+  status              BetStatus @default(PLACED)
+  placedAt            DateTime  @default(now())
+  match               Match     @relation(fields: [matchId], references: [id])
+  user                User      @relation(fields: [userId], references: [id])
+
+  @@unique([matchId, userId])
+}
+
+model Offer {
+  id        String     @id @default(cuid())
+  sellerId  String
+  buyerId   String
+  coinId    String
+  qty       Int
+  priceGPC  Decimal    @db.Decimal(18, 6)
+  state     OfferState @default(PENDING)
+  expiresAt DateTime
+  createdAt DateTime   @default(now())
+  buyer     User       @relation("buyerOffers", fields: [buyerId], references: [id])
+  coin      Coin       @relation(fields: [coinId], references: [id])
+  seller    User       @relation("sellerOffers", fields: [sellerId], references: [id])
+}
+
+model MatchHistory {
+  id           String   @id @default(cuid())
+  p1UserId     String
+  p2UserId     String
+  winnerUserId String
+  loserScore   Int
+  p1EloBefore  Int
+  p2EloBefore  Int
+  p1EloAfter   Int
+  p2EloAfter   Int
+  // Store exact per-player deltas so we can undo on delete
+  p1EloDelta   Int      @default(0)
+  p2EloDelta   Int      @default(0)
+  createdAt    DateTime @default(now())
+}
+
+model Audit {
+  id          String   @id @default(cuid())
+  actorUserId String?
+  action      String
+  payloadJSON String
+  createdAt   DateTime @default(now())
+}
+
+enum MatchState {
+  OPEN
+  LOCKED
+  SETTLED
+  CANCELLED
+}
+
+enum BetStatus {
+  PLACED
+  REFUNDED
+  SETTLED
+}
+
+enum OfferState {
+  PENDING
+  ACCEPTED
+  EXPIRED
+  CANCELLED
+}

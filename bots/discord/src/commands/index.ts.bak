@@ -1,0 +1,134 @@
+﻿import * as fs from "node:fs";
+import * as path from "node:path";
+import { pathToFileURL, fileURLToPath } from "node:url";
+import type { Message } from "discord.js";
+
+export type CommandCtx = { msg: Message; args: string[]; prefix: string };
+export type CommandHandler = (ctx: CommandCtx) => Promise<void> | void;
+export type CommandsMap = Map<string, CommandHandler>;
+
+function isFunc(x: unknown): x is Function {
+  return typeof x === "function";
+}
+
+function toArray(x: unknown): string[] {
+  if (!x) return [];
+  if (Array.isArray(x)) return x.map(String);
+  return [String(x)];
+}
+
+function walk(dir: string): string[] {
+  const out: string[] = [];
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      out.push(...walk(full));
+    } else if (entry.isFile()) {
+      const lc = entry.name.toLowerCase();
+      if (!lc.endsWith(".ts") && !lc.endsWith(".js")) continue;
+      if (lc === "index.ts" || lc === "index.js") continue; // avoid importing this file
+      if (lc.endsWith(".d.ts")) continue;
+      out.push(full);
+    }
+  }
+  return out;
+}
+
+function namesFromModule(mod: any, fallbackName: string): string[] {
+  const names = new Set<string>();
+
+  // common shapes
+  toArray((mod && mod.name) ?? []).forEach(n => names.add(String(n).toLowerCase()));
+  toArray((mod && mod.alias) ?? []).forEach(n => names.add(String(n).toLowerCase()));
+  toArray((mod && mod.aliases) ?? []).forEach(n => names.add(String(n).toLowerCase()));
+  toArray((mod && mod.names) ?? []).forEach(n => names.add(String(n).toLowerCase()));
+  toArray((mod && mod.command && mod.command.name)).forEach(n => names.add(String(n).toLowerCase()));
+  toArray((mod && mod.command && mod.command.aliases) ?? []).forEach(n => names.add(String(n).toLowerCase()));
+
+  // commands as map/object-of-functions
+  if (mod && mod.commands) {
+    if (mod.commands instanceof Map) {
+      for (const k of mod.commands.keys()) names.add(String(k).toLowerCase());
+    } else if (Array.isArray(mod.commands)) {
+      for (const c of mod.commands) {
+        if (c?.name) names.add(String(c.name).toLowerCase());
+        for (const a of toArray(c?.aliases)) names.add(String(a).toLowerCase());
+      }
+    } else if (typeof mod.commands === "object") {
+      for (const k of Object.keys(mod.commands)) names.add(String(k).toLowerCase());
+    }
+  }
+
+  if (names.size === 0 && fallbackName) names.add(fallbackName.toLowerCase());
+  // drop empty strings if any
+  return [...names].filter(Boolean);
+}
+
+function handlerFromModule(mod: any): CommandHandler | null {
+  if (!mod) return null;
+  if (isFunc(mod.default)) return mod.default as CommandHandler;
+  if (isFunc(mod.run)) return mod.run as CommandHandler;
+  if (isFunc(mod.execute)) return mod.execute as CommandHandler;
+  if (mod.command && (isFunc(mod.command.run) || isFunc(mod.command.execute))) {
+    return (mod.command.run ?? mod.command.execute) as CommandHandler;
+  }
+  if (mod.commands) {
+    if (mod.commands instanceof Map) {
+      // choose first function
+      for (const v of mod.commands.values()) {
+        if (isFunc(v)) return v as CommandHandler;
+      }
+    } else if (Array.isArray(mod.commands)) {
+      if (mod.commands[0] && (isFunc(mod.commands[0].run) || isFunc(mod.commands[0].execute))) {
+        return (mod.commands[0].run ?? mod.commands[0].execute) as CommandHandler;
+      }
+    } else if (typeof mod.commands === "object") {
+      for (const v of Object.values(mod.commands)) {
+        if (isFunc(v)) return v as CommandHandler;
+        if (v && (isFunc((v as any).run) || isFunc((v as any).execute))) {
+          return ((v as any).run ?? (v as any).execute) as CommandHandler;
+        }
+      }
+    }
+  }
+  return null;
+}
+
+export async function loadCommands(): Promise<CommandsMap> {
+  const here = path.dirname(fileURLToPath(import.meta.url));
+  const base = here; // src/commands
+  const files = walk(base);
+  const map: CommandsMap = new Map();
+
+  for (const file of files) {
+    const rel = path.relative(base, file);
+    const fallback = path.basename(file).replace(/\.(ts|js)$/i, "");
+    try {
+      const mod = await import(pathToFileURL(file).href);
+      const handler = handlerFromModule(mod);
+      if (!handler) {
+        console.warn(`[commands] Skipped "${rel}" (no handler found).`);
+        continue;
+      }
+      const names = namesFromModule(mod, fallback);
+      if (names.length === 0) {
+        console.warn(`[commands] Skipped "${rel}" (no names).`);
+        continue;
+      }
+      for (const n of names) {
+        if (map.has(n)) {
+          console.warn(`[commands] Duplicate name "${n}" — overriding previous handler with "${rel}".`);
+        }
+        map.set(n, handler);
+      }
+      console.log(`[commands] Loaded ${rel} as: ${names.join(", ")}`);
+    } catch (e) {
+      console.warn(`[commands] Failed to import "${rel}":`, e);
+    }
+  }
+
+  if (map.size === 0) {
+    console.warn("[commands] No commands found under src/commands.");
+  }
+  return map;
+}

@@ -1,0 +1,25 @@
+$root = "C:\Dasco1n"
+
+# API (Next.js)
+Start-Process PowerShell -Verb RunAs -WindowStyle Minimized -ArgumentList @(
+  '-NoLogo','-NoProfile','-ExecutionPolicy','Bypass',
+  '-Command',"Set-Location '$root'; pnpm dev"
+)
+
+# HTTPS proxy (8443 -> 3000) for Twitch OAuth
+Start-Process PowerShell -Verb RunAs -WindowStyle Minimized -ArgumentList @(
+  '-NoLogo','-NoProfile','-ExecutionPolicy','Bypass',
+  '-Command','npx local-ssl-proxy --source 8443 --target 3000'
+)
+
+# Discord bot
+Start-Process PowerShell -Verb RunAs -WindowStyle Minimized -ArgumentList @(
+  '-NoLogo','-NoProfile','-ExecutionPolicy','Bypass',
+  '-Command',"Set-Location '$root\bots\discord'; pnpm i; pnpm run dev"
+)
+
+# Twitch bot
+Start-Process PowerShell -Verb RunAs -WindowStyle Minimized -ArgumentList @(
+  '-NoLogo','-NoProfile','-ExecutionPolicy','Bypass',
+  '-Command',"Set-Location '$root\bots\twitch'; pnpm i; pnpm dev"
+)

@@ -1,0 +1,93 @@
+import { getJSON, postJSON, API_BASE } from '../lib/http';
+import type { Command } from "./index";
+import * as fs from "node:fs";
+import * as path from "node:path";
+
+type Link = { discordId: string; twitchLogin: string; twitchId?: string };
+
+function loadLinks(file: string): Link[] {
+  try { return JSON.parse(fs.readFileSync(file, "utf8")); } catch { return []; }
+}
+function ensureLinksFile(file: string) {
+  const dir = path.dirname(file);
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+  if (!fs.existsSync(file)) fs.writeFileSync(file, "[]");
+}
+function pickDiscordId(input: string | undefined, authorId: string): string {
+  if (!input) return authorId;
+  const m = input.match(/^<@!?(\d+)>$/);
+  if (m) return m[1];
+  if (/^\d+$/.test(input)) return input;
+  return authorId;
+}
+function formatPoints(n: number) { return n.toLocaleString("en-US"); }
+
+const dascoin: Command = async ({ msg, args }) => {
+  const channelLogin = (process.env.STREAMELEMENTS_CHANNEL
+    || process.env.SE_CHANNEL_ID
+    || process.env.TWITCH_CHANNEL
+    || process.env.TWITCH_NICK
+    || "").trim().toLowerCase();
+
+  const jwt = (process.env.STREAMELEMENTS_JWT || process.env.SE_JWT || "").trim();
+
+  if (!channelLogin) {
+    await msg.reply("?? Set **SE_CHANNEL_ID** (or STREAMELEMENTS_CHANNEL) to your Twitch login (e.g. `dasm1ns`).");
+    return;
+  }
+  if (/^\d+$/.test(channelLogin)) {
+    await msg.reply("?? Channel must be a Twitch **login**, not a numeric id. Example: `SE_CHANNEL_ID=dasm1ns`.");
+    return;
+  }
+
+  const file = path.join(process.cwd(), "data", "userlinks.json");
+  ensureLinksFile(file);
+  const links = loadLinks(file);
+  const targetId = pickDiscordId(args[0], msg.author.id);
+  const link = links.find(l => l.discordId === targetId);
+
+  if (!link) {
+    await msg.reply("? No Twitch link found for that user. Use `!inputuser <tLogin> <tId|-> <@mention>` first.");
+    return;
+  }
+
+  const userKey = encodeURIComponent(link.twitchLogin || link.twitchId || "");
+  if (!userKey) {
+    await msg.reply("? Stored link has no twitch login/id. Re-run `!inputuser`.");
+    return;
+  }
+
+  const url = `https://api.streamelements.com/kappa/v2/points/${encodeURIComponent(channelLogin)}/${userKey}`;
+if ((process.env.DEBUG || '').includes('dascoin')) {
+  console.log(`[dascoin] url=${url} jwt=${jwt?'yes':'no'} target=${link.twitchLogin||link.twitchId} by=${msg.author.id}`);
+}
+  const headers: Record<string,string> = { "accept": "application/json" };
+  if (jwt) headers["authorization"] = `Bearer ${jwt}`;
+
+  try {
+    const res = await fetch(url, { method: "GET", headers });
+    if (res.status === 404) {
+  const who = targetId === msg.author.id ? "You" : `<@${targetId}>`;
+  await msg.reply(`?? ${who} have **0** Dascoin (no points yet for ${link.twitchLogin} in ${channelLogin}).`);
+  return;
+}
+if (!res.ok) {
+  await msg.reply(`? StreamElements error: HTTP ${res.status}`);
+  return;
+}`);
+      return;
+    }
+    const data: any = await res.json();
+    const pts = (data?.points ?? data?.total ?? data?.point?.current ?? data?.current) as number | undefined;
+    if (typeof pts !== "number") {
+      await msg.reply("? Unexpected response from StreamElements (no points field).");
+      return;
+    }
+    const who = targetId === msg.author.id ? "You" : `<@${targetId}>`;
+    await msg.reply(`?? ${who} have **${formatPoints(pts)}** Dascoin.`);
+  } catch (e: any) {
+    await msg.reply(`? StreamElements request failed: ${e?.message ?? e}`);
+  }
+};
+export default dascoin;
+

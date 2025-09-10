@@ -1,0 +1,1 @@
+﻿No Git data available or git not installed.

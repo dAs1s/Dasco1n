@@ -1,0 +1,92 @@
+﻿import * as fs from "node:fs";
+import * as path from "node:path";
+
+type Link = { discordId: string; twitchLogin: string; twitchId?: string };
+
+function ensureLinks(file: string) {
+  const dir = path.dirname(file);
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+  if (!fs.existsSync(file)) fs.writeFileSync(file, "[]");
+}
+function loadLinks(file: string): Link[] {
+  try { return JSON.parse(fs.readFileSync(file, "utf8")); } catch { return []; }
+}
+function parseDiscordTarget(input: string | undefined, authorId: string): string {
+  if (!input) return authorId;
+  const m = input.trim().match(/^<@!?(\d+)>$/);
+  if (m) return m[1];
+  if (/^\d+$/.test(input.trim())) return input.trim();
+  return authorId;
+}
+function formatPoints(n: number) { return n.toLocaleString("en-US"); }
+
+export default async function ({ msg, args }: any) {
+  // Channel (must be TWITCH LOGIN, lowercase; not a numeric id)
+  const channelLogin = (process.env.SE_CHANNEL_ID
+    || process.env.STREAMELEMENTS_CHANNEL
+    || process.env.TWITCH_CHANNEL
+    || process.env.TWITCH_NICK
+    || ""
+  ).trim().toLowerCase();
+
+  const jwt = (process.env.SE_JWT || process.env.STREAMELEMENTS_JWT || "").trim();
+
+  if (!channelLogin) {
+    await msg.reply("⚠️ Set SE_CHANNEL_ID in your root .env to your Twitch login (e.g. dasm1ns).");
+    return;
+  }
+  if (/^\d+$/.test(channelLogin)) {
+    await msg.reply("⚠️ SE_CHANNEL_ID must be a Twitch login (letters/numbers), not a numeric id.");
+    return;
+  }
+
+  // Resolve target Discord user → Twitch mapping
+  const linksPath = path.join(process.cwd(), "data", "userlinks.json");
+  ensureLinks(linksPath);
+  const links = loadLinks(linksPath);
+
+  const targetDiscordId = parseDiscordTarget(args?.[0], msg.author.id);
+  const link = links.find(l => l.discordId === targetDiscordId);
+
+  if (!link) {
+    await msg.reply("❌ No Twitch link found for that user. Use `!inputuser <tLogin> <tId|-> <@mention>` first.");
+    return;
+  }
+
+  const userKeyRaw = link.twitchLogin || link.twitchId || "";
+  if (!userKeyRaw) {
+    await msg.reply("❌ Stored link has no Twitch login/id. Re-run `!inputuser`.");
+    return;
+  }
+
+  const url = `https://api.streamelements.com/kappa/v2/points/${encodeURIComponent(channelLogin)}/${encodeURIComponent(userKeyRaw)}`;
+  const headers: Record<string,string> = { "accept": "application/json" };
+  if (jwt) headers["authorization"] = `Bearer ${jwt}`;
+
+  try {
+    const res = await fetch(url, { method: "GET", headers });
+
+    if (res.status === 404) {
+      // SE returns 404 when the user has no points row yet → treat as 0 for a nicer UX
+      const who = (targetDiscordId === msg.author.id) ? "You" : `<@${targetDiscordId}>`;
+      await msg.reply(`💰 ${who} have **0** Dascoin (no points yet for ${link.twitchLogin} in ${channelLogin}).`);
+      return;
+    }
+    if (!res.ok) {
+      await msg.reply(`❌ StreamElements error: HTTP ${res.status}`);
+      return;
+    }
+
+    const data: any = await res.json();
+    const pts = (data?.points ?? data?.total ?? data?.point?.current ?? data?.current);
+    if (typeof pts !== "number") {
+      await msg.reply("❌ Unexpected response from StreamElements (no numeric points field).");
+      return;
+    }
+
+    const who = (targetDiscordId === msg.author.id) ? "You" : `<@${targetDiscordId}>`;
+    await msg.reply(`💰 ${who} have **${formatPoints(pts)}** Dascoin.`);
+  } catch (e: any) {
+    await msg.reply(`❌ StreamElements request failed: ${e?.message ?? e}`);
+  }
+}

@@ -1,0 +1,1 @@
+﻿Root:      C:\dasco1n Generated: 2025-09-08T00:51:55.8192031-07:00 Files:     364 TotalBytes:213382422 Excluded:  .git,node_modules,dist,build,out,target,bin,obj,coverage,logs,.idea,.vscode,.venv,venv,vendor,Pods,__pycache__

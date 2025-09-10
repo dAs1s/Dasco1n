@@ -1,0 +1,11 @@
+﻿<!doctype html><meta charset="utf-8">
+<title>Twitch Token</title>
+<body style="font:14px/1.4 system-ui,Segoe UI,Arial,sans-serif">
+  <h1>Twitch access_token</h1>
+  <p>Copy the value below into your <code>C:\Dasco1n\.env</code> as <code>TWITCH_OAUTH_TOKEN=oauth:VALUE</code></p>
+  <pre id="out" style="white-space:pre-wrap"></pre>
+<script>
+  const h = new URLSearchParams(location.hash.slice(1));
+  const t = h.get("access_token") || "(none)";
+  document.getElementById("out").textContent = t;
+</script>

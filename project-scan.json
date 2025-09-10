@@ -1,0 +1,284 @@
+﻿{
+    "Root":  "C:\\Dasco1n",
+    "Paths":  {
+                  "bots_discord":  "C:\\Dasco1n\\bots\\discord",
+                  "bots_twitch":  "C:\\Dasco1n\\bots\\twitch",
+                  "app":  "C:\\Dasco1n\\app"
+              },
+    "EnvSummary":  [
+                       {
+                           "Path":  "C:\\Dasco1n\\.env",
+                           "Keys":  [
+                                        {
+                                            "Key":  "API_BASE",
+                                            "Value":  "http://127.0.0.1:3000",
+                                            "Masked":  "http://127.0.0.1:3000"
+                                        },
+                                        {
+                                            "Key":  "DISCORD_TOKEN",
+                                            "Value":  "MTQwODAxNzYzMTkzOTkyMzk2OA.GGr8Wn.NQRSZKtSnpspfLL2MkmeDy8DxhwtsLBnetH5NU",
+                                            "Masked":  "MTQw…H5NU"
+                                        },
+                                        {
+                                            "Key":  "TWITCH_OAUTH",
+                                            "Value":  "",
+                                            "Masked":  ""
+                                        },
+                                        {
+                                            "Key":  "TWITCH_OAUTH_TOKEN",
+                                            "Value":  "oauth:zq0k5rato6v7rwjhuubkglp4zt44k8",
+                                            "Masked":  "oaut…44k8"
+                                        },
+                                        {
+                                            "Key":  "SE_JWT",
+                                            "Value":  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjaXRhZGVsIiwiZXhwIjoxNzY4MzM5MDYwLCJqdGkiOiJkYTYxOTUzNS03NDVmLTQyN2UtYWY3YS05NGEzNWE4NDhiY2YiLCJjaGFubmVsIjoiNTk1ODY0YjU0MDE4OGYwNGI1MzQwZDQ4Iiwicm9sZSI6Im93bmVyIiwiYXV0aFRva2VuIjoiM012Y2pVN29SV2hDZEUxM1VsRkIiLCJ1c2VyIjoiNTllODg4ZDBmZDY5MTAxNTM5ZGJkZTc5IiwidXNlcl9pZCI6ImU4NWNkZTMyLWQ5MWQtNDEyMC04ZmFjLWUyMTE1YTE0MGM1ZSIsInVzZXJfcm9sZSI6ImNyZWF0b3IiLCJwcm92aWRlciI6InR3aXRjaCIsInByb3ZpZGVyX2lkIjoiODcwMTE0ODciLCJjaGFubmVsX2lkIjoiMTM0MTAwMjItY2E5NC00OWQ0LWIyMmItNmRiNmNkMTUwMzMwIiwiY3JlYXRvcl9pZCI6ImJhZDBiZDI3LTYzZTYtNDEyYi1iOWFhLTUyNTUzYTZmY2M4OSJ9.0QagmAoeJ7B-CoDXhSDezEdZm_SwFLuMgmtrPxaSKsk",
+                                            "Masked":  "eyJh…SKsk"
+                                        },
+                                        {
+                                            "Key":  "SE_CHANNEL_ID",
+                                            "Value":  "dasm1ns",
+                                            "Masked":  "*******"
+                                        }
+                                    ]
+                       },
+                       {
+                           "Path":  "C:\\Dasco1n\\bots\\discord\\.env",
+                           "Keys":  [
+                                        {
+                                            "Key":  "API_BASE",
+                                            "Value":  "http://127.0.0.1:3000",
+                                            "Masked":  "http://127.0.0.1:3000"
+                                        },
+                                        {
+                                            "Key":  "SE_JWT",
+                                            "Value":  "",
+                                            "Masked":  ""
+                                        },
+                                        {
+                                            "Key":  "SE_CHANNEL_ID",
+                                            "Value":  "dasm1ns",
+                                            "Masked":  "*******"
+                                        }
+                                    ]
+                       }
+                   ],
+    "EffectiveApiBase":  "http://127.0.0.1:3000",
+    "Discord":  {
+                    "Dir":  "C:\\Dasco1n\\bots\\discord",
+                    "PackagePath":  "C:\\Dasco1n\\bots\\discord\\package.json",
+                    "Name":  "dascoin-discord-bot",
+                    "Scripts":  {
+                                    "dev":  "tsx watch src/index.ts",
+                                    "start":  "tsx src/index.ts"
+                                },
+                    "Dependencies":  {
+                                         "axios":  "^1.11.0",
+                                         "discord.js":  "14.22.1",
+                                         "dotenv":  "16.6.1"
+                                     },
+                    "IndexTs":  "C:\\Dasco1n\\bots\\discord\\src\\index.ts",
+                    "CommandsDir":  "C:\\Dasco1n\\bots\\discord\\src\\commands",
+                    "CommandFiles":  [
+                                         "C:\\Dasco1n\\bots\\discord\\src\\commands\\bet.ts",
+                                         "C:\\Dasco1n\\bots\\discord\\src\\commands\\dascoin.ts",
+                                         "C:\\Dasco1n\\bots\\discord\\src\\commands\\help.ts",
+                                         "C:\\Dasco1n\\bots\\discord\\src\\commands\\index.ts",
+                                         "C:\\Dasco1n\\bots\\discord\\src\\commands\\inputDiscordName.ts",
+                                         "C:\\Dasco1n\\bots\\discord\\src\\commands\\inputPlayer.ts",
+                                         "C:\\Dasco1n\\bots\\discord\\src\\commands\\inputTwitchName.ts",
+                                         "C:\\Dasco1n\\bots\\discord\\src\\commands\\inputUser.ts",
+                                         "C:\\Dasco1n\\bots\\discord\\src\\commands\\ladder.ts",
+                                         "C:\\Dasco1n\\bots\\discord\\src\\commands\\listall.ts",
+                                         "C:\\Dasco1n\\bots\\discord\\src\\commands\\matchHistory.ts",
+                                         "C:\\Dasco1n\\bots\\discord\\src\\commands\\myMatchHistory.ts",
+                                         "C:\\Dasco1n\\bots\\discord\\src\\commands\\myStats.ts",
+                                         "C:\\Dasco1n\\bots\\discord\\src\\commands\\myWallet.ts",
+                                         "C:\\Dasco1n\\bots\\discord\\src\\commands\\record.ts",
+                                         "C:\\Dasco1n\\bots\\discord\\src\\commands\\remove.ts",
+                                         "C:\\Dasco1n\\bots\\discord\\src\\commands\\search.ts",
+                                         "C:\\Dasco1n\\bots\\discord\\src\\commands\\stats.ts"
+                                     ],
+                    "MessageCreateHandlers":  [
+                                                  {
+                                                      "File":  "C:\\Dasco1n\\bots\\discord\\src\\index.ts",
+                                                      "Line":  41,
+                                                      "Text":  "client.on(\"messageCreate\", async (msg) =\u003e {"
+                                                  }
+                                              ],
+                    "HttpHints":  [
+                                      {
+                                          "File":  "C:\\Dasco1n\\bots\\discord\\src\\commands\\ladder.ts",
+                                          "Line":  15,
+                                          "Text":  "const data = await getJSON(path);"
+                                      },
+                                      {
+                                          "File":  "C:\\Dasco1n\\bots\\discord\\src\\commands\\listall.ts",
+                                          "Line":  6,
+                                          "Text":  "const { items = [] } = await getJSON(`/api/leaderboards/elo?limit=1000`);"
+                                      },
+                                      {
+                                          "File":  "C:\\Dasco1n\\bots\\discord\\src\\commands\\matchHistory.ts",
+                                          "Line":  9,
+                                          "Text":  "const data = await getJSON(`/api/matches/history?user=${encodeURIComponent(who)}`);"
+                                      },
+                                      {
+                                          "File":  "C:\\Dasco1n\\bots\\discord\\src\\commands\\myMatchHistory.ts",
+                                          "Line":  7,
+                                          "Text":  "const data = await getJSON(`/api/matches/history?user=${encodeURIComponent(msg.author.id)}`);"
+                                      },
+                                      {
+                                          "File":  "C:\\Dasco1n\\bots\\discord\\src\\commands\\myStats.ts",
+                                          "Line":  7,
+                                          "Text":  "const data = await getJSON(`/api/users/${encodeURIComponent(msg.author.id)}`);"
+                                      },
+                                      {
+                                          "File":  "C:\\Dasco1n\\bots\\discord\\src\\commands\\myWallet.ts",
+                                          "Line":  7,
+                                          "Text":  "const data = await getJSON(`/api/wallets/${encodeURIComponent(msg.author.id)}`);"
+                                      },
+                                      {
+                                          "File":  "C:\\Dasco1n\\bots\\discord\\src\\commands\\search.ts",
+                                          "Line":  9,
+                                          "Text":  "const data = await getJSON(`/api/search?q=${encodeURIComponent(q)}`);"
+                                      },
+                                      {
+                                          "File":  "C:\\Dasco1n\\bots\\discord\\src\\commands\\stats.ts",
+                                          "Line":  8,
+                                          "Text":  "const data = await getJSON(`/api/users/${encodeURIComponent(who)}`);"
+                                      },
+                                      {
+                                          "File":  "C:\\Dasco1n\\bots\\discord\\src\\util\\api.ts",
+                                          "Line":  15,
+                                          "Text":  "export async function getJSON(path: string) {"
+                                      },
+                                      {
+                                          "File":  "C:\\Dasco1n\\bots\\discord\\src\\index.ts",
+                                          "Line":  27,
+                                          "Text":  "await axios.get(url, { timeout: 3000 }).catch(async (e) =\u003e {"
+                                      },
+                                      {
+                                          "File":  "C:\\Dasco1n\\bots\\discord\\src\\util\\api.ts",
+                                          "Line":  16,
+                                          "Text":  "const res = await axios.get(`${API_BASE}${path}`, { headers: buildHeaders() });"
+                                      },
+                                      {
+                                          "File":  "C:\\Dasco1n\\bots\\discord\\src\\util\\api.ts",
+                                          "Line":  21,
+                                          "Text":  "const res = await axios.post(`${API_BASE}${path}`, body, {"
+                                      },
+                                      {
+                                          "File":  "C:\\Dasco1n\\bots\\discord\\src\\commands\\dascoin.ts",
+                                          "Line":  65,
+                                          "Text":  "const res = await fetch(url, { method: \"GET\", headers });"
+                                      },
+                                      {
+                                          "File":  "C:\\Dasco1n\\bots\\discord\\src\\lib\\http.ts",
+                                          "Line":  7,
+                                          "Text":  "const res = await fetch(url, { method: \u0027GET\u0027, headers: { accept: \u0027application/json\u0027 } });"
+                                      },
+                                      {
+                                          "File":  "C:\\Dasco1n\\bots\\discord\\src\\lib\\http.ts",
+                                          "Line":  14,
+                                          "Text":  "const res = await fetch(url, {"
+                                      }
+                                  ],
+                    "UserLinksPath":  "C:\\Dasco1n\\bots\\discord\\data\\userlinks.json",
+                    "UserLinksCount":  1
+                },
+    "Twitch":  {
+                   "Dir":  "C:\\Dasco1n\\bots\\twitch",
+                   "PackagePath":  "C:\\Dasco1n\\bots\\twitch\\package.json",
+                   "Name":  "twitch-bot",
+                   "Scripts":  {
+                                   "build":  "tsc",
+                                   "start":  "tsx src/index.ts",
+                                   "dev":  "tsx watch src/index.ts"
+                               },
+                   "Dependencies":  {
+                                        "axios":  "^1.7.9",
+                                        "dotenv":  "^16.4.5",
+                                        "tmi.js":  "^1.8.5",
+                                        "winston":  "^3.11.0",
+                                        "zod":  "^3.23.8"
+                                    }
+               },
+    "App":  {
+                "Dir":  "C:\\Dasco1n\\app",
+                "PackagePath":  "C:\\Dasco1n\\app\\package.json"
+            },
+    "Candidates":  [
+                       {
+                           "Dir":  "C:\\Dasco1n",
+                           "PackagePath":  "C:\\Dasco1n\\package.json",
+                           "Name":  "dasco1n-twitch-bot",
+                           "StartScript":  "node dist/index.js",
+                           "DevScript":  "next dev",
+                           "HasExpress":  false,
+                           "HasFastify":  false,
+                           "HasKoa":  false,
+                           "HasNest":  false,
+                           "HasHapi":  false,
+                           "HasNext":  true,
+                           "EntryGuess":  "C:\\Dasco1n\\server.ts",
+                           "PortGuess":  "3000",
+                           "EnvFiles":  [
+                                            "C:\\Dasco1n\\.env"
+                                        ]
+                       },
+                       {
+                           "Dir":  "C:\\Dasco1n\\bots\\discord",
+                           "PackagePath":  "C:\\Dasco1n\\bots\\discord\\package.json",
+                           "Name":  "dascoin-discord-bot",
+                           "StartScript":  "tsx src/index.ts",
+                           "DevScript":  "tsx watch src/index.ts",
+                           "HasExpress":  false,
+                           "HasFastify":  false,
+                           "HasKoa":  false,
+                           "HasNest":  false,
+                           "HasHapi":  false,
+                           "HasNext":  false,
+                           "EntryGuess":  "C:\\Dasco1n\\bots\\discord\\src\\index.ts",
+                           "PortGuess":  "",
+                           "EnvFiles":  [
+                                            "C:\\Dasco1n\\bots\\discord\\.env"
+                                        ]
+                       },
+                       {
+                           "Dir":  "C:\\Dasco1n\\bots\\discord.SOS-20250829-005719",
+                           "PackagePath":  "C:\\Dasco1n\\bots\\discord.SOS-20250829-005719\\package.json",
+                           "Name":  "dascoin-discord-bot",
+                           "StartScript":  "node dist/index.js",
+                           "DevScript":  "tsx watch src/index.ts",
+                           "HasExpress":  false,
+                           "HasFastify":  false,
+                           "HasKoa":  false,
+                           "HasNest":  false,
+                           "HasHapi":  false,
+                           "HasNext":  false,
+                           "EntryGuess":  "C:\\Dasco1n\\bots\\discord.SOS-20250829-005719\\src\\index.ts",
+                           "PortGuess":  "",
+                           "EnvFiles":  [
+
+                                        ]
+                       },
+                       {
+                           "Dir":  "C:\\Dasco1n\\bots\\twitch",
+                           "PackagePath":  "C:\\Dasco1n\\bots\\twitch\\package.json",
+                           "Name":  "twitch-bot",
+                           "StartScript":  "tsx src/index.ts",
+                           "DevScript":  "tsx watch src/index.ts",
+                           "HasExpress":  false,
+                           "HasFastify":  false,
+                           "HasKoa":  false,
+                           "HasNest":  false,
+                           "HasHapi":  false,
+                           "HasNext":  false,
+                           "EntryGuess":  "C:\\Dasco1n\\bots\\twitch\\src\\index.ts",
+                           "PortGuess":  "",
+                           "EnvFiles":  [
+
+                                        ]
+                       }
+                   ],
+    "Timestamp":  "2025-08-30T20:33:12"
+}

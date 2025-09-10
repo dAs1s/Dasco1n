@@ -1,0 +1,32 @@
+﻿import { getJSON, postJSON, API_BASE } from '../lib/http';
+// bots/discord/commands/help.ts
+import { EmbedBuilder } from 'discord.js';
+import type { Command } from './index';
+
+const help: Command = async ({ msg }) => {
+  const embed = new EmbedBuilder()
+    .setTitle('Commands')
+    .setDescription([
+      '**Linking & Profiles**',
+      '`!inputPlayer <username>`',
+      '`!inputDiscordName <username> <@mention|id>`',
+      '`!inputTwitchName <username> <twitchLogin>`',
+      '`!setPfP <coinName>` (coming soon)',
+      '',
+      '**Info**',
+      '`!myStats` / `!stats <username>`',
+      '`!myWallet`',
+      '`!search <query>`',
+      '`!top10DSC` | `!top10GPC` | `!top10Ladder` | `!ladder`',
+      '`!myMatchHistory` | `!matchHistory <username>`',
+      '',
+      '**Betting & Matches**',
+      '`!bet <1|2> <loserScore> <amount>`',
+      '`!record <p1> <p2> <loserScore>` (mod)',
+      '`!remove <p1> <p2> <loserScore>` (mod)',
+    ].join('\n'))
+    .setColor(0x5865F2);
+  await msg.reply({ embeds: [embed] });
+};
+
+export default help;

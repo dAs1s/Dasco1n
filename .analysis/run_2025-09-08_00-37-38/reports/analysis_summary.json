@@ -1,0 +1,678 @@
+﻿{
+    "root":  "C:\\dasco1n",
+    "generatedAt":  "2025-09-08T00:37:48.8921631-07:00",
+    "fileCount":  39308,
+    "totalBytes":  897776646,
+    "languages":  [
+                      {
+                          "name":  "JavaScript",
+                          "files":  18588
+                      },
+                      {
+                          "name":  "Other",
+                          "files":  9480
+                      },
+                      {
+                          "name":  "TypeScript",
+                          "files":  8567
+                      },
+                      {
+                          "name":  "JSON",
+                          "files":  1281
+                      },
+                      {
+                          "name":  "Markdown",
+                          "files":  1071
+                      },
+                      {
+                          "name":  "YAML",
+                          "files":  126
+                      },
+                      {
+                          "name":  "PowerShell",
+                          "files":  79
+                      },
+                      {
+                          "name":  "Batch",
+                          "files":  66
+                      },
+                      {
+                          "name":  "HTML",
+                          "files":  19
+                      },
+                      {
+                          "name":  "Make",
+                          "files":  12
+                      },
+                      {
+                          "name":  "C++",
+                          "files":  7
+                      },
+                      {
+                          "name":  "C/C++",
+                          "files":  6
+                      },
+                      {
+                          "name":  "CSS",
+                          "files":  3
+                      },
+                      {
+                          "name":  "SQL",
+                          "files":  2
+                      },
+                      {
+                          "name":  "TOML",
+                          "files":  1
+                      }
+                  ],
+    "largestFiles":  [
+                         {
+                             "Path":  "C:\\dasco1n\\node_modules\\.pnpm\\@next+swc-win32-x64-msvc@15.5.2\\node_modules\\@next\\swc-win32-x64-msvc\\next-swc.win32-x64-msvc.node",
+                             "RelativePath":  "node_modules\\.pnpm\\@next+swc-win32-x64-msvc@15.5.2\\node_modules\\@next\\swc-win32-x64-msvc\\next-swc.win32-x64-msvc.node",
+                             "Name":  "next-swc.win32-x64-msvc.node",
+                             "Extension":  ".node",
+                             "Language":  "Other",
+                             "SizeBytes":  148164608,
+                             "IsText":  false,
+                             "Lines":  null,
+                             "ModifiedUtc":  "\/Date(1756410392000)\/"
+                         },
+                         {
+                             "Path":  "C:\\dasco1n\\.analysis\\run_2025-09-08_00-32-18\\reports\\file_inventory.json",
+                             "RelativePath":  ".analysis\\run_2025-09-08_00-32-18\\reports\\file_inventory.json",
+                             "Name":  "file_inventory.json",
+                             "Extension":  ".json",
+                             "Language":  "JSON",
+                             "SizeBytes":  21972821,
+                             "IsText":  false,
+                             "Lines":  null,
+                             "ModifiedUtc":  "\/Date(1757316748372)\/"
+                         },
+                         {
+                             "Path":  "C:\\dasco1n\\.analysis\\run_2025-09-08_00-27-44\\reports\\file_inventory.json",
+                             "RelativePath":  ".analysis\\run_2025-09-08_00-27-44\\reports\\file_inventory.json",
+                             "Name":  "file_inventory.json",
+                             "Extension":  ".json",
+                             "Language":  "JSON",
+                             "SizeBytes":  21971930,
+                             "IsText":  false,
+                             "Lines":  null,
+                             "ModifiedUtc":  "\/Date(1757316474379)\/"
+                         },
+                         {
+                             "Path":  "C:\\dasco1n\\.analysis\\run_2025-09-07_23-17-56\\reports\\file_inventory.json",
+                             "RelativePath":  ".analysis\\run_2025-09-07_23-17-56\\reports\\file_inventory.json",
+                             "Name":  "file_inventory.json",
+                             "Extension":  ".json",
+                             "Language":  "JSON",
+                             "SizeBytes":  21844197,
+                             "IsText":  false,
+                             "Lines":  null,
+                             "ModifiedUtc":  "\/Date(1757312793212)\/"
+                         },
+                         {
+                             "Path":  "C:\\dasco1n\\node_modules\\.cache\\prisma\\master\\85179d7826409ee107a6ba334b5e305ae3fba9fb\\windows\\query-engine",
+                             "RelativePath":  "node_modules\\.cache\\prisma\\master\\85179d7826409ee107a6ba334b5e305ae3fba9fb\\windows\\query-engine",
+                             "Name":  "query-engine",
+                             "Extension":  "",
+                             "Language":  "Other",
+                             "SizeBytes":  21581824,
+                             "IsText":  false,
+                             "Lines":  null,
+                             "ModifiedUtc":  "\/Date(1756440484000)\/"
+                         },
+                         {
+                             "Path":  "C:\\dasco1n\\node_modules\\.pnpm\\@prisma+engines@6.15.0\\node_modules\\@prisma\\engines\\query_engine-windows.dll.node",
+                             "RelativePath":  "node_modules\\.pnpm\\@prisma+engines@6.15.0\\node_modules\\@prisma\\engines\\query_engine-windows.dll.node",
+                             "Name":  "query_engine-windows.dll.node",
+                             "Extension":  ".node",
+                             "Language":  "Other",
+                             "SizeBytes":  21162496,
+                             "IsText":  false,
+                             "Lines":  null,
+                             "ModifiedUtc":  "\/Date(1756440440000)\/"
+                         },
+                         {
+                             "Path":  "C:\\dasco1n\\node_modules\\.pnpm\\@prisma+engines@6.15.0\\node_modules\\@prisma\\engines\\node_modules\\.cache\\prisma\\master\\85179d7826409ee107a6ba334b5e305ae3fba9fb\\windows\\libquery-engine",
+                             "RelativePath":  "node_modules\\.pnpm\\@prisma+engines@6.15.0\\node_modules\\@prisma\\engines\\node_modules\\.cache\\prisma\\master\\85179d7826409ee107a6ba334b5e305ae3fba9fb\\windows\\libquery-engine",
+                             "Name":  "libquery-engine",
+                             "Extension":  "",
+                             "Language":  "Other",
+                             "SizeBytes":  21162496,
+                             "IsText":  false,
+                             "Lines":  null,
+                             "ModifiedUtc":  "\/Date(1756440440000)\/"
+                         },
+                         {
+                             "Path":  "C:\\dasco1n\\node_modules\\.pnpm\\@prisma+engines@6.15.0\\node_modules\\@prisma\\engines\\node_modules\\.cache\\prisma\\master\\85179d7826409ee107a6ba334b5e305ae3fba9fb\\windows\\schema-engine",
+                             "RelativePath":  "node_modules\\.pnpm\\@prisma+engines@6.15.0\\node_modules\\@prisma\\engines\\node_modules\\.cache\\prisma\\master\\85179d7826409ee107a6ba334b5e305ae3fba9fb\\windows\\schema-engine",
+                             "Name":  "schema-engine",
+                             "Extension":  "",
+                             "Language":  "Other",
+                             "SizeBytes":  19353600,
+                             "IsText":  false,
+                             "Lines":  null,
+                             "ModifiedUtc":  "\/Date(1756440440000)\/"
+                         },
+                         {
+                             "Path":  "C:\\dasco1n\\.analysis\\run_2025-09-07_23-17-56\\reports\\file_inventory.csv",
+                             "RelativePath":  ".analysis\\run_2025-09-07_23-17-56\\reports\\file_inventory.csv",
+                             "Name":  "file_inventory.csv",
+                             "Extension":  ".csv",
+                             "Language":  "Other",
+                             "SizeBytes":  12720648,
+                             "IsText":  false,
+                             "Lines":  null,
+                             "ModifiedUtc":  "\/Date(1757312791805)\/"
+                         },
+                         {
+                             "Path":  "C:\\dasco1n\\.analysis\\run_2025-09-08_00-32-18\\reports\\file_inventory.csv",
+                             "RelativePath":  ".analysis\\run_2025-09-08_00-32-18\\reports\\file_inventory.csv",
+                             "Name":  "file_inventory.csv",
+                             "Extension":  ".csv",
+                             "Language":  "Other",
+                             "SizeBytes":  12612914,
+                             "IsText":  false,
+                             "Lines":  null,
+                             "ModifiedUtc":  "\/Date(1757316747321)\/"
+                         },
+                         {
+                             "Path":  "C:\\dasco1n\\.analysis\\run_2025-09-08_00-27-44\\reports\\file_inventory.csv",
+                             "RelativePath":  ".analysis\\run_2025-09-08_00-27-44\\reports\\file_inventory.csv",
+                             "Name":  "file_inventory.csv",
+                             "Extension":  ".csv",
+                             "Language":  "Other",
+                             "SizeBytes":  12612479,
+                             "IsText":  false,
+                             "Lines":  null,
+                             "ModifiedUtc":  "\/Date(1757316473335)\/"
+                         },
+                         {
+                             "Path":  "C:\\dasco1n\\bots\\discord\\node_modules\\.pnpm\\typescript@5.9.2\\node_modules\\typescript\\lib\\typescript.js",
+                             "RelativePath":  "bots\\discord\\node_modules\\.pnpm\\typescript@5.9.2\\node_modules\\typescript\\lib\\typescript.js",
+                             "Name":  "typescript.js",
+                             "Extension":  ".js",
+                             "Language":  "JavaScript",
+                             "SizeBytes":  9111680,
+                             "IsText":  false,
+                             "Lines":  null,
+                             "ModifiedUtc":  "\/Date(1756360608000)\/"
+                         },
+                         {
+                             "Path":  "C:\\dasco1n\\bots\\_archive\\discord.SOS-20250829-005719\\node_modules\\typescript\\lib\\typescript.js",
+                             "RelativePath":  "bots\\_archive\\discord.SOS-20250829-005719\\node_modules\\typescript\\lib\\typescript.js",
+                             "Name":  "typescript.js",
+                             "Extension":  ".js",
+                             "Language":  "JavaScript",
+                             "SizeBytes":  9111680,
+                             "IsText":  false,
+                             "Lines":  null,
+                             "ModifiedUtc":  "\/Date(1756360608000)\/"
+                         },
+                         {
+                             "Path":  "C:\\dasco1n\\bots\\_archive\\discord.SOS-20250829-005719\\node_modules\\.pnpm\\typescript@5.9.2\\node_modules\\typescript\\lib\\typescript.js",
+                             "RelativePath":  "bots\\_archive\\discord.SOS-20250829-005719\\node_modules\\.pnpm\\typescript@5.9.2\\node_modules\\typescript\\lib\\typescript.js",
+                             "Name":  "typescript.js",
+                             "Extension":  ".js",
+                             "Language":  "JavaScript",
+                             "SizeBytes":  9111680,
+                             "IsText":  false,
+                             "Lines":  null,
+                             "ModifiedUtc":  "\/Date(1756360608000)\/"
+                         },
+                         {
+                             "Path":  "C:\\dasco1n\\node_modules\\.pnpm\\typescript@5.9.2\\node_modules\\typescript\\lib\\typescript.js",
+                             "RelativePath":  "node_modules\\.pnpm\\typescript@5.9.2\\node_modules\\typescript\\lib\\typescript.js",
+                             "Name":  "typescript.js",
+                             "Extension":  ".js",
+                             "Language":  "JavaScript",
+                             "SizeBytes":  9111680,
+                             "IsText":  false,
+                             "Lines":  null,
+                             "ModifiedUtc":  "\/Date(1756360608000)\/"
+                         },
+                         {
+                             "Path":  "C:\\dasco1n\\bots\\twitch\\node_modules\\.pnpm\\typescript@5.9.2\\node_modules\\typescript\\lib\\typescript.js",
+                             "RelativePath":  "bots\\twitch\\node_modules\\.pnpm\\typescript@5.9.2\\node_modules\\typescript\\lib\\typescript.js",
+                             "Name":  "typescript.js",
+                             "Extension":  ".js",
+                             "Language":  "JavaScript",
+                             "SizeBytes":  9111680,
+                             "IsText":  false,
+                             "Lines":  null,
+                             "ModifiedUtc":  "\/Date(1756360608000)\/"
+                         },
+                         {
+                             "Path":  "C:\\dasco1n\\bots\\_archive\\discord.SOS-20250829-005719\\node_modules\\typescript\\lib\\_tsc.js",
+                             "RelativePath":  "bots\\_archive\\discord.SOS-20250829-005719\\node_modules\\typescript\\lib\\_tsc.js",
+                             "Name":  "_tsc.js",
+                             "Extension":  ".js",
+                             "Language":  "JavaScript",
+                             "SizeBytes":  6211917,
+                             "IsText":  false,
+                             "Lines":  null,
+                             "ModifiedUtc":  "\/Date(1756360608000)\/"
+                         },
+                         {
+                             "Path":  "C:\\dasco1n\\node_modules\\.pnpm\\typescript@5.9.2\\node_modules\\typescript\\lib\\_tsc.js",
+                             "RelativePath":  "node_modules\\.pnpm\\typescript@5.9.2\\node_modules\\typescript\\lib\\_tsc.js",
+                             "Name":  "_tsc.js",
+                             "Extension":  ".js",
+                             "Language":  "JavaScript",
+                             "SizeBytes":  6211917,
+                             "IsText":  false,
+                             "Lines":  null,
+                             "ModifiedUtc":  "\/Date(1756360608000)\/"
+                         },
+                         {
+                             "Path":  "C:\\dasco1n\\bots\\twitch\\node_modules\\.pnpm\\typescript@5.9.2\\node_modules\\typescript\\lib\\_tsc.js",
+                             "RelativePath":  "bots\\twitch\\node_modules\\.pnpm\\typescript@5.9.2\\node_modules\\typescript\\lib\\_tsc.js",
+                             "Name":  "_tsc.js",
+                             "Extension":  ".js",
+                             "Language":  "JavaScript",
+                             "SizeBytes":  6211917,
+                             "IsText":  false,
+                             "Lines":  null,
+                             "ModifiedUtc":  "\/Date(1756360608000)\/"
+                         },
+                         {
+                             "Path":  "C:\\dasco1n\\bots\\discord\\node_modules\\.pnpm\\typescript@5.9.2\\node_modules\\typescript\\lib\\_tsc.js",
+                             "RelativePath":  "bots\\discord\\node_modules\\.pnpm\\typescript@5.9.2\\node_modules\\typescript\\lib\\_tsc.js",
+                             "Name":  "_tsc.js",
+                             "Extension":  ".js",
+                             "Language":  "JavaScript",
+                             "SizeBytes":  6211917,
+                             "IsText":  false,
+                             "Lines":  null,
+                             "ModifiedUtc":  "\/Date(1756360608000)\/"
+                         },
+                         {
+                             "Path":  "C:\\dasco1n\\bots\\_archive\\discord.SOS-20250829-005719\\node_modules\\.pnpm\\typescript@5.9.2\\node_modules\\typescript\\lib\\_tsc.js",
+                             "RelativePath":  "bots\\_archive\\discord.SOS-20250829-005719\\node_modules\\.pnpm\\typescript@5.9.2\\node_modules\\typescript\\lib\\_tsc.js",
+                             "Name":  "_tsc.js",
+                             "Extension":  ".js",
+                             "Language":  "JavaScript",
+                             "SizeBytes":  6211917,
+                             "IsText":  false,
+                             "Lines":  null,
+                             "ModifiedUtc":  "\/Date(1756360608000)\/"
+                         },
+                         {
+                             "Path":  "C:\\dasco1n\\node_modules\\.pnpm\\next@15.5.2_react-dom@19.1.1_react@19.1.1__react@19.1.1\\node_modules\\next\\dist\\server\\capsize-font-metrics.json",
+                             "RelativePath":  "node_modules\\.pnpm\\next@15.5.2_react-dom@19.1.1_react@19.1.1__react@19.1.1\\node_modules\\next\\dist\\server\\capsize-font-metrics.json",
+                             "Name":  "capsize-font-metrics.json",
+                             "Extension":  ".json",
+                             "Language":  "JSON",
+                             "SizeBytes":  4301622,
+                             "IsText":  false,
+                             "Lines":  null,
+                             "ModifiedUtc":  "\/Date(1756410398000)\/"
+                         },
+                         {
+                             "Path":  "C:\\dasco1n\\node_modules\\.pnpm\\next@15.5.2_react-dom@19.1.1_react@19.1.1__react@19.1.1\\node_modules\\next\\dist\\compiled\\amphtml-validator\\validator_wasm.js",
+                             "RelativePath":  "node_modules\\.pnpm\\next@15.5.2_react-dom@19.1.1_react@19.1.1__react@19.1.1\\node_modules\\next\\dist\\compiled\\amphtml-validator\\validator_wasm.js",
+                             "Name":  "validator_wasm.js",
+                             "Extension":  ".js",
+                             "Language":  "JavaScript",
+                             "SizeBytes":  4012235,
+                             "IsText":  false,
+                             "Lines":  null,
+                             "ModifiedUtc":  "\/Date(1756410398000)\/"
+                         },
+                         {
+                             "Path":  "C:\\dasco1n\\node_modules\\.pnpm\\prisma@6.15.0_typescript@5.9.2\\node_modules\\prisma\\build\\schema_engine_bg.wasm",
+                             "RelativePath":  "node_modules\\.pnpm\\prisma@6.15.0_typescript@5.9.2\\node_modules\\prisma\\build\\schema_engine_bg.wasm",
+                             "Name":  "schema_engine_bg.wasm",
+                             "Extension":  ".wasm",
+                             "Language":  "Other",
+                             "SizeBytes":  3953594,
+                             "IsText":  false,
+                             "Lines":  null,
+                             "ModifiedUtc":  "\/Date(1756440436000)\/"
+                         },
+                         {
+                             "Path":  "C:\\dasco1n\\node_modules\\.pnpm\\next@15.5.2_react-dom@19.1.1_react@19.1.1__react@19.1.1\\node_modules\\next\\dist\\compiled\\next-server\\app-page-turbo-experimental.runtime.dev.js.map",
+                             "RelativePath":  "node_modules\\.pnpm\\next@15.5.2_react-dom@19.1.1_react@19.1.1__react@19.1.1\\node_modules\\next\\dist\\compiled\\next-server\\app-page-turbo-experimental.runtime.dev.js.map",
+                             "Name":  "app-page-turbo-experimental.runtime.dev.js.map",
+                             "Extension":  ".map",
+                             "Language":  "Other",
+                             "SizeBytes":  3745372,
+                             "IsText":  false,
+                             "Lines":  null,
+                             "ModifiedUtc":  "\/Date(1756410400000)\/"
+                         }
+                     ],
+    "recentFiles":  [
+                        {
+                            "Path":  "C:\\dasco1n\\scripts\\Analyze-Project.ps1",
+                            "RelativePath":  "scripts\\Analyze-Project.ps1",
+                            "Name":  "Analyze-Project.ps1",
+                            "Extension":  ".ps1",
+                            "Language":  "PowerShell",
+                            "SizeBytes":  20479,
+                            "IsText":  false,
+                            "Lines":  null,
+                            "ModifiedUtc":  "\/Date(1757317056097)\/"
+                        },
+                        {
+                            "Path":  "C:\\dasco1n\\.analysis\\run_2025-09-08_00-32-18\\reports\\file_inventory.json",
+                            "RelativePath":  ".analysis\\run_2025-09-08_00-32-18\\reports\\file_inventory.json",
+                            "Name":  "file_inventory.json",
+                            "Extension":  ".json",
+                            "Language":  "JSON",
+                            "SizeBytes":  21972821,
+                            "IsText":  false,
+                            "Lines":  null,
+                            "ModifiedUtc":  "\/Date(1757316748372)\/"
+                        },
+                        {
+                            "Path":  "C:\\dasco1n\\.analysis\\run_2025-09-08_00-32-18\\reports\\file_inventory.csv",
+                            "RelativePath":  ".analysis\\run_2025-09-08_00-32-18\\reports\\file_inventory.csv",
+                            "Name":  "file_inventory.csv",
+                            "Extension":  ".csv",
+                            "Language":  "Other",
+                            "SizeBytes":  12612914,
+                            "IsText":  false,
+                            "Lines":  null,
+                            "ModifiedUtc":  "\/Date(1757316747321)\/"
+                        },
+                        {
+                            "Path":  "C:\\dasco1n\\.analysis\\run_2025-09-08_00-27-44\\reports\\file_inventory.json",
+                            "RelativePath":  ".analysis\\run_2025-09-08_00-27-44\\reports\\file_inventory.json",
+                            "Name":  "file_inventory.json",
+                            "Extension":  ".json",
+                            "Language":  "JSON",
+                            "SizeBytes":  21971930,
+                            "IsText":  false,
+                            "Lines":  null,
+                            "ModifiedUtc":  "\/Date(1757316474379)\/"
+                        },
+                        {
+                            "Path":  "C:\\dasco1n\\.analysis\\run_2025-09-08_00-27-44\\reports\\file_inventory.csv",
+                            "RelativePath":  ".analysis\\run_2025-09-08_00-27-44\\reports\\file_inventory.csv",
+                            "Name":  "file_inventory.csv",
+                            "Extension":  ".csv",
+                            "Language":  "Other",
+                            "SizeBytes":  12612479,
+                            "IsText":  false,
+                            "Lines":  null,
+                            "ModifiedUtc":  "\/Date(1757316473335)\/"
+                        },
+                        {
+                            "Path":  "C:\\dasco1n\\.analysis\\run_2025-09-07_23-17-56\\reports\\file_inventory.json",
+                            "RelativePath":  ".analysis\\run_2025-09-07_23-17-56\\reports\\file_inventory.json",
+                            "Name":  "file_inventory.json",
+                            "Extension":  ".json",
+                            "Language":  "JSON",
+                            "SizeBytes":  21844197,
+                            "IsText":  false,
+                            "Lines":  null,
+                            "ModifiedUtc":  "\/Date(1757312793212)\/"
+                        },
+                        {
+                            "Path":  "C:\\dasco1n\\.analysis\\run_2025-09-07_23-17-56\\reports\\file_inventory.csv",
+                            "RelativePath":  ".analysis\\run_2025-09-07_23-17-56\\reports\\file_inventory.csv",
+                            "Name":  "file_inventory.csv",
+                            "Extension":  ".csv",
+                            "Language":  "Other",
+                            "SizeBytes":  12720648,
+                            "IsText":  false,
+                            "Lines":  null,
+                            "ModifiedUtc":  "\/Date(1757312791805)\/"
+                        },
+                        {
+                            "Path":  "C:\\dasco1n\\bots\\discord\\data\\userlinks.json",
+                            "RelativePath":  "bots\\discord\\data\\userlinks.json",
+                            "Name":  "userlinks.json",
+                            "Extension":  ".json",
+                            "Language":  "JSON",
+                            "SizeBytes":  622,
+                            "IsText":  false,
+                            "Lines":  null,
+                            "ModifiedUtc":  "\/Date(1756724384740)\/"
+                        },
+                        {
+                            "Path":  "C:\\dasco1n\\bots\\discord\\src\\commands\\deleteUser.ts",
+                            "RelativePath":  "bots\\discord\\src\\commands\\deleteUser.ts",
+                            "Name":  "deleteUser.ts",
+                            "Extension":  ".ts",
+                            "Language":  "TypeScript",
+                            "SizeBytes":  1592,
+                            "IsText":  false,
+                            "Lines":  null,
+                            "ModifiedUtc":  "\/Date(1756686061912)\/"
+                        },
+                        {
+                            "Path":  "C:\\dasco1n\\bots\\discord\\src\\commands\\help.ts",
+                            "RelativePath":  "bots\\discord\\src\\commands\\help.ts",
+                            "Name":  "help.ts",
+                            "Extension":  ".ts",
+                            "Language":  "TypeScript",
+                            "SizeBytes":  3448,
+                            "IsText":  false,
+                            "Lines":  null,
+                            "ModifiedUtc":  "\/Date(1756626509834)\/"
+                        },
+                        {
+                            "Path":  "C:\\dasco1n\\bots\\discord\\src\\commands\\ladder.ts",
+                            "RelativePath":  "bots\\discord\\src\\commands\\ladder.ts",
+                            "Name":  "ladder.ts",
+                            "Extension":  ".ts",
+                            "Language":  "TypeScript",
+                            "SizeBytes":  7137,
+                            "IsText":  false,
+                            "Lines":  null,
+                            "ModifiedUtc":  "\/Date(1756625882911)\/"
+                        },
+                        {
+                            "Path":  "C:\\dasco1n\\bots\\discord\\src\\commands\\stats.ts",
+                            "RelativePath":  "bots\\discord\\src\\commands\\stats.ts",
+                            "Name":  "stats.ts",
+                            "Extension":  ".ts",
+                            "Language":  "TypeScript",
+                            "SizeBytes":  5976,
+                            "IsText":  false,
+                            "Lines":  null,
+                            "ModifiedUtc":  "\/Date(1756624461367)\/"
+                        },
+                        {
+                            "Path":  "C:\\dasco1n\\bots\\discord\\src\\commands\\myStats.ts.disabled",
+                            "RelativePath":  "bots\\discord\\src\\commands\\myStats.ts.disabled",
+                            "Name":  "myStats.ts.disabled",
+                            "Extension":  ".disabled",
+                            "Language":  "Other",
+                            "SizeBytes":  6058,
+                            "IsText":  false,
+                            "Lines":  null,
+                            "ModifiedUtc":  "\/Date(1756624461345)\/"
+                        },
+                        {
+                            "Path":  "C:\\dasco1n\\bots\\discord\\src\\commands\\dascoin.ts",
+                            "RelativePath":  "bots\\discord\\src\\commands\\dascoin.ts",
+                            "Name":  "dascoin.ts",
+                            "Extension":  ".ts",
+                            "Language":  "TypeScript",
+                            "SizeBytes":  6817,
+                            "IsText":  false,
+                            "Lines":  null,
+                            "ModifiedUtc":  "\/Date(1756621919681)\/"
+                        },
+                        {
+                            "Path":  "C:\\dasco1n\\bots\\discord\\src\\commands\\inputUser.ts",
+                            "RelativePath":  "bots\\discord\\src\\commands\\inputUser.ts",
+                            "Name":  "inputUser.ts",
+                            "Extension":  ".ts",
+                            "Language":  "TypeScript",
+                            "SizeBytes":  1760,
+                            "IsText":  false,
+                            "Lines":  null,
+                            "ModifiedUtc":  "\/Date(1756621355191)\/"
+                        },
+                        {
+                            "Path":  "C:\\dasco1n\\bots\\discord\\src\\commands\\inputUser.ts.bak-20250830232235",
+                            "RelativePath":  "bots\\discord\\src\\commands\\inputUser.ts.bak-20250830232235",
+                            "Name":  "inputUser.ts.bak-20250830232235",
+                            "Extension":  ".bak-20250830232235",
+                            "Language":  "Other",
+                            "SizeBytes":  1760,
+                            "IsText":  false,
+                            "Lines":  null,
+                            "ModifiedUtc":  "\/Date(1756621353572)\/"
+                        },
+                        {
+                            "Path":  "C:\\dasco1n\\.env",
+                            "RelativePath":  ".env",
+                            "Name":  ".env",
+                            "Extension":  ".env",
+                            "Language":  "Other",
+                            "SizeBytes":  4280,
+                            "IsText":  false,
+                            "Lines":  null,
+                            "ModifiedUtc":  "\/Date(1756620780817)\/"
+                        },
+                        {
+                            "Path":  "C:\\dasco1n\\bots\\discord\\src\\commands\\index.ts",
+                            "RelativePath":  "bots\\discord\\src\\commands\\index.ts",
+                            "Name":  "index.ts",
+                            "Extension":  ".ts",
+                            "Language":  "TypeScript",
+                            "SizeBytes":  5172,
+                            "IsText":  false,
+                            "Lines":  null,
+                            "ModifiedUtc":  "\/Date(1756617461275)\/"
+                        },
+                        {
+                            "Path":  "C:\\dasco1n\\bots\\discord\\src\\commands\\_disabled\\discord.ts.disabled",
+                            "RelativePath":  "bots\\discord\\src\\commands\\_disabled\\discord.ts.disabled",
+                            "Name":  "discord.ts.disabled",
+                            "Extension":  ".disabled",
+                            "Language":  "Other",
+                            "SizeBytes":  4187,
+                            "IsText":  false,
+                            "Lines":  null,
+                            "ModifiedUtc":  "\/Date(1756617460885)\/"
+                        },
+                        {
+                            "Path":  "C:\\dasco1n\\bots\\discord\\src\\commands\\dascoin.ts.bak-20250830224812",
+                            "RelativePath":  "bots\\discord\\src\\commands\\dascoin.ts.bak-20250830224812",
+                            "Name":  "dascoin.ts.bak-20250830224812",
+                            "Extension":  ".bak-20250830224812",
+                            "Language":  "Other",
+                            "SizeBytes":  3499,
+                            "IsText":  false,
+                            "Lines":  null,
+                            "ModifiedUtc":  "\/Date(1756615293243)\/"
+                        },
+                        {
+                            "Path":  "C:\\dasco1n\\bots\\discord\\src\\commands\\dascoin.ts.bak-20250830214133",
+                            "RelativePath":  "bots\\discord\\src\\commands\\dascoin.ts.bak-20250830214133",
+                            "Name":  "dascoin.ts.bak-20250830214133",
+                            "Extension":  ".bak-20250830214133",
+                            "Language":  "Other",
+                            "SizeBytes":  3506,
+                            "IsText":  false,
+                            "Lines":  null,
+                            "ModifiedUtc":  "\/Date(1756614977611)\/"
+                        },
+                        {
+                            "Path":  "C:\\dasco1n\\bots\\discord\\src\\env.ts",
+                            "RelativePath":  "bots\\discord\\src\\env.ts",
+                            "Name":  "env.ts",
+                            "Extension":  ".ts",
+                            "Language":  "TypeScript",
+                            "SizeBytes":  352,
+                            "IsText":  false,
+                            "Lines":  null,
+                            "ModifiedUtc":  "\/Date(1756614755809)\/"
+                        },
+                        {
+                            "Path":  "C:\\dasco1n\\tsconfig.json",
+                            "RelativePath":  "tsconfig.json",
+                            "Name":  "tsconfig.json",
+                            "Extension":  ".json",
+                            "Language":  "JSON",
+                            "SizeBytes":  499,
+                            "IsText":  false,
+                            "Lines":  null,
+                            "ModifiedUtc":  "\/Date(1756614239350)\/"
+                        },
+                        {
+                            "Path":  "C:\\dasco1n\\package.json",
+                            "RelativePath":  "package.json",
+                            "Name":  "package.json",
+                            "Extension":  ".json",
+                            "Language":  "JSON",
+                            "SizeBytes":  218,
+                            "IsText":  false,
+                            "Lines":  null,
+                            "ModifiedUtc":  "\/Date(1756614233613)\/"
+                        },
+                        {
+                            "Path":  "C:\\dasco1n\\next.config.js",
+                            "RelativePath":  "next.config.js",
+                            "Name":  "next.config.js",
+                            "Extension":  ".js",
+                            "Language":  "JavaScript",
+                            "SizeBytes":  193,
+                            "IsText":  false,
+                            "Lines":  null,
+                            "ModifiedUtc":  "\/Date(1756612827060)\/"
+                        }
+                    ],
+    "settings":  {
+                     "MaxFiles":  0,
+                     "Fast":  true,
+                     "SecretsMaxFileSizeMB":  1,
+                     "Deep":  false,
+                     "MaxFileSizeMB":  5
+                 },
+    "excludes":  {
+                     "fileGlobs":  [
+                                       "*.min.*",
+                                       "*.lock",
+                                       "*.log",
+                                       "*.png",
+                                       "*.jpg",
+                                       "*.jpeg",
+                                       "*.gif",
+                                       "*.bmp",
+                                       "*.ico",
+                                       "*.svg",
+                                       "*.pdf",
+                                       "*.zip",
+                                       "*.7z",
+                                       "*.tar",
+                                       "*.gz",
+                                       "*.rar",
+                                       "*.dll",
+                                       "*.exe"
+                                   ],
+                     "dirs":  [
+                                  ".git",
+                                  "node_modules",
+                                  "bower_components",
+                                  "dist",
+                                  "build",
+                                  "out",
+                                  "target",
+                                  "bin",
+                                  "obj",
+                                  "coverage",
+                                  "logs",
+                                  ".idea",
+                                  ".vscode",
+                                  ".venv",
+                                  "venv",
+                                  ".tox",
+                                  ".pytest_cache",
+                                  ".mypy_cache",
+                                  ".cache",
+                                  ".gradle",
+                                  ".nuget",
+                                  "vendor",
+                                  "packages",
+                                  "Pods",
+                                  "__pycache__"
+                              ]
+                 }
+}

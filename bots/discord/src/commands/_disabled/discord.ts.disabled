@@ -1,0 +1,121 @@
+﻿import type { Command } from "./index";
+import * as fs from "node:fs";
+import * as path from "node:path";
+
+type Link = { discordId: string; twitchLogin: string; twitchId?: string };
+
+function ensure(file: string) {
+  const dir = path.dirname(file);
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+  if (!fs.existsSync(file)) fs.writeFileSync(file, "[]");
+}
+
+function loadLinks(file: string): Link[] {
+  try { return JSON.parse(fs.readFileSync(file, "utf8")); } catch { return []; }
+}
+
+function parseMention(s?: string): string | null {
+  const m = s?.trim().match(/^<@!?(\d+)>$/);
+  return m ? m[1] : null;
+}
+
+function pickDiscordTarget(arg: string | undefined, authorId: string): string {
+  if (!arg) return authorId;
+  const mention = parseMention(arg);
+  if (mention) return mention;
+  if (/^\d+$/.test(arg)) return arg;
+  return authorId;
+}
+
+function dbg(...args: any[]) {
+  const d = (process.env.DEBUG || "").toLowerCase();
+  if (d.includes("discord") || d.includes("sepoints")) {
+    // eslint-disable-next-line no-console
+    console.log("[discord-cmd]", ...args);
+  }
+}
+
+const discordCommand: Command = async ({ msg, args }) => {
+  // Prefer channel login from SE vars; fall back to TWITCH_NICK if present.
+  const channelLogin = (
+    process.env.SE_CHANNEL_ID ||
+    process.env.STREAMELEMENTS_CHANNEL ||
+    process.env.TWITCH_NICK ||
+    ""
+  ).trim().toLowerCase();
+
+  const jwt = (process.env.SE_JWT || process.env.STREAMELEMENTS_JWT || "").trim();
+
+  if (!channelLogin) {
+    await msg.reply("⚠️ Set **SE_CHANNEL_ID** (Twitch channel login) in your ROOT .env.");
+    return;
+  }
+
+  const linksFile = path.join(process.cwd(), "data", "userlinks.json");
+  ensure(linksFile);
+  const links = loadLinks(linksFile);
+
+  const targetDiscordId = pickDiscordTarget(args?.[0], msg.author.id);
+  const link = links.find(l => l.discordId === targetDiscordId);
+
+  dbg("channelLogin=%s jwtPresent=%s targetDiscord=%s link=%j",
+      channelLogin, jwt ? "yes" : "no", targetDiscordId, link || null);
+
+  if (!link) {
+    await msg.reply("❌ No Twitch link found. Use `!inputuser <username> <twitchID|-> <@mention>` first.");
+    return;
+  }
+
+  const userKeyRaw = link.twitchLogin || link.twitchId || "";
+  if (!userKeyRaw) {
+    await msg.reply("❌ Linked record has no Twitch login/id. Re-run `!inputuser`.");
+    return;
+  }
+
+  const url = `https://api.streamelements.com/kappa/v2/points/${encodeURIComponent(channelLogin)}/${encodeURIComponent(userKeyRaw)}`;
+  const headers: Record<string,string> = { accept: "application/json" };
+  if (jwt) headers.authorization = `Bearer ${jwt}`;
+
+  dbg("GET %s headers=%o", url, { authorization: jwt ? "Bearer <present>" : "<none>" });
+
+  try {
+    const res = await fetch(url, { method: "GET", headers });
+    dbg("status=%s", res.status);
+
+    if (res.status === 404) {
+      const who = targetDiscordId === msg.author.id ? "You" : `<@${targetDiscordId}>`;
+      await msg.reply(`💰 ${who} have **0** Dascoin (no points yet for ${link.twitchLogin || link.twitchId} in ${channelLogin}).`);
+      return;
+    }
+    if (res.status === 401 || res.status === 403) {
+      await msg.reply("❌ StreamElements says unauthorized. If your channel requires it, set **SE_JWT** in ROOT .env.");
+      return;
+    }
+    if (!res.ok) {
+      const text = await res.text().catch(() => "");
+      dbg("non-ok body=%s", text);
+      await msg.reply(`❌ StreamElements error: HTTP ${res.status}`);
+      return;
+    }
+
+    const data: any = await res.json().catch(() => null);
+    dbg("data=%j", data);
+
+    const pts =
+      (data && (data.points ?? data.total ?? data.current)) ??
+      (data && data.point && data.point.current);
+
+    if (typeof pts !== "number") {
+      await msg.reply("❌ Unexpected response from StreamElements (no points field).");
+      return;
+    }
+
+    const who = targetDiscordId === msg.author.id ? "You" : `<@${targetDiscordId}>`;
+    await msg.reply(`💰 ${who} have **${pts.toLocaleString("en-US")}** Dascoin.`);
+  } catch (e: any) {
+    dbg("fetch error: %s", e?.message || e);
+    await msg.reply(`❌ StreamElements request failed: ${e?.message || e}`);
+  }
+};
+
+export default discordCommand;

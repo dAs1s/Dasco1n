@@ -1,0 +1,4 @@
+﻿[2025-08-30 14:25:07Z] [INFO] === Stream Stack Diagnostics START ===
+[2025-08-30 14:25:07Z] [VERBOSE] Parameters: RootPath=C:\Dasco1n, OutputPath=, OnlineValidation=False, CheckDependencies=False, MaxFileKB=512
+[2025-08-30 14:25:07Z] [INFO] Fast scan: Root=C:\Dasco1n, Excludes=node_modules,.git,.vscode,.vs,dist,build,out,coverage,__pycache__,venv,.venv,env,bin,obj,.idea, MaxItems=120000
+[2025-08-30 14:25:07Z] [INFO] Fast scan complete. Dirs=99, Files=293
